@@ -2,7 +2,7 @@
 <body>
   <h1> this is a register page</h1>
   <form method = 'post' action ='index.php'>
-  <strong> Username: </stong> <input type='text' name='reg_username' value="" /></br></br>
+  <strong> Username: </stong> <input type='test' name='reg_username' value="" /></br></br>
 
 <strong> Password: </strong> <input type="password" name="reg_password" value="" /></br></br>
 
