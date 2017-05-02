@@ -1,6 +1,6 @@
 <?php
-require('db_connection.php');
-require('db.php');
+require('./model/db_connection.php');
+require('./model/db.php');
 $action = filter_input(INPUT_POST, "action");
 if($action == NULL) {
 	$action="show_login_page";
@@ -16,10 +16,10 @@ if($action == "show_login_page") {
 	$result= getTodoItems($_COOKIE['my_id']);
 	include('list.php');
   }else {
-	header ('location : badinfo.php');
+	include('badinfo.php');
   }
 }else if ($action == 'registrar'){
-	$name = filter_input(INPUT_POST, 'reg_uname');
+	$name = filter_input(INPUT_POST, 'reg_username');
   if(isset($name))
   {
 	$pass = filter_input(INPUT_POST, 'reg_password');
