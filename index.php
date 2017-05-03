@@ -23,12 +23,22 @@ if($action == "show_login_page") {
   if(isset($name))
   {
 	$pass = filter_input(INPUT_POST, 'reg_password');
-	$exit = createUser($name, $pass);
-
+	$fname = filter_input(INPUT_POST, 'user_fname');
+	$lname = filter_input(INPUT_POST, 'user_lname');
+	$pnumber = filter_input(INPUT_POST, 'user_pnumber', FILTER_VALIDATE_INT);
+	$dob = filter_input(INPUT_POST, 'dob');
+	$gender = filter_input(INPUT_POST, 'gender');
+	if($pass== NULL || $fname== NULL || $lname== NULL || $pnumber== NULL || $dob == NULL){
+	echo "Please enter the correct data";//create a page and redirect for css purpose
+	}else{ 
+	$exit = createUser($name, $pass, $fname, $lname, $pnumber, $dob, $gender);
+	}
     if($exit == true)
     {
+	echo "after createuser function";
 	include ("location: user_exists.php");
     }else {
+	echo"created a user";
 	header("location: login.php");
     }
   }
