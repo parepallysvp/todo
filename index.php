@@ -22,12 +22,12 @@ if($action == "show_login_page") {
 	$name = filter_input(INPUT_POST, 'reg_username');
   if(isset($name))
   {
-	$pass = filter_input(INPUT_POST, 'reg_password');
-	$fname = filter_input(INPUT_POST, 'user_fname');
-	$lname = filter_input(INPUT_POST, 'user_lname');
-	$pnumber = filter_input(INPUT_POST, 'user_pnumber', FILTER_VALIDATE_INT);
-	$dob = filter_input(INPUT_POST, 'dob');
-	$gender = filter_input(INPUT_POST, 'gender');
+	$pass = filter_input(INPUT_POST, "reg_password");
+	$fname = filter_input(INPUT_POST, "user_fname");
+	$lname = filter_input(INPUT_POST, "user_lname");
+	$pnumber = filter_input(INPUT_POST, "user_pnumber", FILTER_VALIDATE_INT);
+	$dob = filter_input(INPUT_POST, "dob");
+	$gender = filter_input(INPUT_POST, "gender");
 	if($pass== NULL || $fname== NULL || $lname== NULL || $pnumber== NULL || $dob == NULL){
 		include("wrongdata.php");
 	}else{ 
@@ -35,7 +35,6 @@ if($action == "show_login_page") {
 	}
     if($exit == true)
     {
-	echo "after createuser function";
 	include ("location: user_exists.php");
     }else {
 	echo"created a user";
@@ -43,10 +42,12 @@ if($action == "show_login_page") {
     }
   }
 }else if ($action == 'add'){
-  if (($_POST['description'] and $_POST['description']))
-  {
-	addTodoItem($_COOKIE['my_id'],$_POST['description']);
-  }
+//  if (($_POST['description'] and $_POST['description'])) ask about this if statement
+ // {
+	$id= $_COOKIE['my_id'];
+	$description= filter_input(INPUT_POST, 'description');
+	addTodoItem($id,$description);
+//  }
 	$result = getTodoItems($_COOKIE['my_id']);
 	include('list.php');
 }else if($action == 'delete'){
