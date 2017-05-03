@@ -12,7 +12,7 @@ function deleteTodoItem($user_id, $todo_id){
 
 function addTodoItem($user_id, $todo_text){
   global $db;
-  $query ="INSERT INTO todo(user_id, todo_item) values (:userid, :todo_text)";
+  $query ="INSERT INTO todo(user_id, todo_item) VALUES (:userid, :todo_text)";
   $statement = $db->prepare($query);
   $statement->bindValue(':userid', $user_id);
   $statement->bindValue(':todo_text', $todo_text);
@@ -31,7 +31,7 @@ function getTodoItems($user_id){
   return $result;
 }
 
-function createUser($username, $password){
+function createUser($username, $password, $firstname, $lastname, $phonenumber, $dateofbirth, $gender){
  global $db;
  $query = 'select * from users where username = :name '; 
  $statment = $db->prepare($query);
@@ -44,10 +44,15 @@ function createUser($username, $password){
 {
 	return true;
 }else{
- $query = 'insert into users (username.passwordHash) values (:name, :pass)';
+ $query = 'INSERT INTO users (username, passwordHash, firstname, lastname, phonenumber, dateofbirth, gender) VALUES (:name, :pass, :fname, :lname, :pnumber, :dob, :gender)';
  $statement = $db->prepare($query);
  $statement->bindValue(':name', $username);
- $statemtnt->bindValue(':pass', $password);
+ $statement->bindValue(':pass', $password);
+ $statement->bindValue(':fname', $firstname);
+ $statement->bindValue(':lname', $lastname);
+ $statement->bindValue(':pnumber', $phonenumber);
+ $statement->bindValue(':dob', $dateofbirth);
+ $statement->bindValue(':gender', $gender);
  $statement->execute();
  $statement->closeCursor();
  return false;
