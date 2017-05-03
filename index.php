@@ -29,7 +29,7 @@ if($action == "show_login_page") {
 	$dob = filter_input(INPUT_POST, 'dob');
 	$gender = filter_input(INPUT_POST, 'gender');
 	if($pass== NULL || $fname== NULL || $lname== NULL || $pnumber== NULL || $dob == NULL){
-	echo "Please enter the correct data";//create a page and redirect for css purpose
+		include("wrongdata.php");
 	}else{ 
 	$exit = createUser($name, $pass, $fname, $lname, $pnumber, $dob, $gender);
 	}
