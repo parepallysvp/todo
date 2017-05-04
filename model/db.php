@@ -56,7 +56,6 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
  $statement->bindValue(':gender', $gender);
  $statement->execute();
  $statement->closeCursor();
- setcookie('user',$username);//make this work
  return false;
 }
 }
