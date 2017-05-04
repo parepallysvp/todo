@@ -2,20 +2,20 @@
 
 function deleteTodoItem($user_id, $todo_id){
   global $db;
-  $query='DELETE FROM todos WHERE id = :todo_id and user_id = :user_id';
+  $query='DELETE FROM todos WHERE user_id = :user_id and id = :todo_id';
   $statement = $db->prepare($query);
-  $statement->bindValue(':userid', $user_id);
-  $statement->bindValue(':todo_text', $todo_id);
+  $statement->bindValue(':todo_id', $todo_id);
+  $statement->bindValue(':user_id', $user_id);
   $statement->execute();
   $statement->closeCursor();
 }
 
-function addTodoItem($id, $description){
+function addTodoItem($user_id, $todo_text){
   global $db;
-  $query ="INSERT INTO todo(user_id, todo_item) VALUES (:id, :description)";
+  $query ="INSERT INTO todos (user_id, todo_item) VALUES (:userid, :todo_text)";
   $statement = $db->prepare($query);
-  $statement->bindValue(':id', $user_id);
-  $statement->bindValue(':description', $todo_text);
+  $statement->bindValue(':userid', $user_id);
+  $statement->bindValue(':todo_text', $todo_text);
   $statement->execute();
   $statement->closeCursor();
 }
@@ -56,6 +56,7 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
  $statement->bindValue(':gender', $gender);
  $statement->execute();
  $statement->closeCursor();
+ setcookie('user',$username);//make this work
  return false;
 }
 }
