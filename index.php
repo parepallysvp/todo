@@ -35,25 +35,19 @@ if($action == "show_login_page") {
 	}
     if($exit == true)
     {
-	include ("location: user_exists.php");
+	include ("user_exists.php");
     }else {
-	echo"created a user";
-	header("location: login.php");
+	include("newUser.php");
     }
   }
 }else if ($action == 'add'){
-//  if (($_POST['description'] and $_POST['description'])) ask about this if statement
- // {
-	$id= $_COOKIE['my_id'];
-	$description= filter_input(INPUT_POST, 'description');
-	addTodoItem($id,$description);
-//  }
+	addTodoItem($_COOKIE['my_id'], $_POST['description']);
 	$result = getTodoItems($_COOKIE['my_id']);
 	include('list.php');
 }else if($action == 'delete'){
   if(isset($_POST['item_id'])){
 	$selected=$_POST['item_id'];
-        deleteTodoItem($_COOKIE['my_id']);
+        deleteTodoItem($_COOKIE['my_id'], $selected);
 }
 	$result = getTodoItems($_COOKIE['my_id']);
 	include ('list.php');
