@@ -1,6 +1,6 @@
 <?php
 echo "<h1> To Do list system<h1>";
-echo "welcome, " . $_COOKIE['login'] .$_COOKIE['my_id']. '<br/>';
+echo "welcome, " . $_COOKIE['login'] . '<br/>';
 echo "below, you may find your to-do items <br/><br />";
 ?>
 <html>
