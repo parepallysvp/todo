@@ -59,7 +59,7 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
  return false;
 }
 }
-function isUserValid($username, $password){
+  function isUserValid($username, $password){
   global $db;
   $query = 'select * from users where username = :name and passwordHash = :pass';
   $statement = $db->prepare($query);
@@ -81,5 +81,36 @@ function isUserValid($username, $password){
        setcookie('id', false);
        return false;
      }
+}
+
+function passValid($password){
+  global $db;
+  $query= 'select * from users where passwordHash = :pass';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':pass', $password);
+  $statement->execute();
+  $result = $statement->fetchAll();
+  $statement->closeCursor();
+  $count= $statement->rowCount();
+  if($count == 1){
+     return true;
+}else{
+  return false;
+}
+}
+function userValid($username){
+  global $db;
+  $query= 'select * from users where username = :name';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':name', $username);
+  $statement->execute();
+  $result = $statement->fetchAll();
+  $statement->closeCursor();
+  $count= $statement->rowCount();
+  if($count == 1){
+     return true;
+}else{
+  return false;
+}
 }
 ?>
