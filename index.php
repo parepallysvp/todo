@@ -11,13 +11,18 @@ if($action == "show_login_page") {
 	$username = $_POST['reg_uname'];
 	$password = $_POST['reg_password'];
 	$suc = isUserValid($username, $password);
+	$userverify = userValid($username);
   if($suc == true)
   {
 	$result= getTodoItems($_COOKIE['my_id']);
 	include('list.php');
-  }else {
-	include('badinfo.php');
-  }
+  }else if($suc == false){
+          if($userverify == true){
+		echo"correct username, but wrong password";
+	}else{
+		echo"username does not exist"; 
+}
+}
 }else if ($action == 'registrar'){
 	$name = filter_input(INPUT_POST, 'reg_username');
   if(isset($name))
@@ -36,10 +41,10 @@ if($action == "show_login_page") {
     if($exit == true)
     {
 	include ("user_exists.php");
-    }else {
+    }else{
 	include("newUser.php");
-    }
   }
+}
 }else if ($action == 'add'){
   if(isset($_POST['description']))
 {
