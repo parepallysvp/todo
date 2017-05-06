@@ -1,21 +1,18 @@
 <html>
-<body class="body">
-<div class="login" >
-  <h1>Login Page</h1>
-  <link rel="stylesheet" type="text/css"  href="main.css">
-  <div class="login_username">
-<form method="post" action="./index.php" >
-	  <label class="username"> <strong>username:</strong></label><input type="test" name="reg_uname" value="" placeholder="njit email address"/></div>
-	<div class="login_password">
-  	  <label class="password"> <strong>Password:</strong></label><input type="password" name="reg_password" value=""/><br><br></div>
-	  <input type="hidden" name="action" value="test_user"/>
-         <button class="login"> <input type="submit" value="Login"/></button>
-  </form>
-<button class="register">
- <form action="./register.php">
-	<input type="submit" value="Register" />
-  </form>
-</button>
+<body>
+<?php include'./view/header.php';?>
+<div class="login">
+  <h2>Login Page</h2>
+	<form method="post" action="./index.php" >
+	<div class="username">  <label> Username:</label><input type="test" name="reg_uname" value="" placeholder="njit email address"/></div>
+	<div class="password">  <label> Password:</label><input type="password" name="reg_password" value=""/><br><br></div>
+	 <input type="hidden" name="action" value="test_user"/>
+          <input type="submit" value="Login" class="Button"/>
+	</form>
+	<form action="register.php" class="register">
+	<input type="submit" value="Register" class="Button"/>
+	</form></span>
 </div>
+<?php include'./view/footer.php';?>
 </body>
 </html>
