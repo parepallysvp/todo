@@ -72,6 +72,8 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
   if($count == 1){
        setcookie('login', $username);
        setcookie('my_id', $result[0]['id']);
+       setcookie('fname', $result[0]['firstname']);
+       setcookie('lname', $result[0]['lastname']);
        setcookie('islogged', true);
        return true;
      }else{
@@ -79,6 +81,8 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
        setcookie('login', false);
        setcookie('islogged', false);
        setcookie('id', false);
+       setcookie('firstname', false);
+       setcookie('lastname', false);
        return false;
      }
 }
