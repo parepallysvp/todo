@@ -1,13 +1,11 @@
-<?php
-echo "<h1> To Do list system<h1>";
-echo "welcome, " . $_COOKIE['login'] . '<br/>';
-echo "below, you may find your to-do items <br/><br />";
-?>
 <html>
 <head>
 
 </head>
 <body>
+	<h1> To do list system</h1>
+	<h3> Welcome <?php echo $_COOKIE['fname'].", ".$_COOKIE['lname']; ?></h3><br/>
+	<p> Below, you may find your to-do items </p><br/> 
   <table>
 	<?php foreach($result as $res):?>
 	<tr>
