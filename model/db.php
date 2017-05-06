@@ -10,19 +10,22 @@ function deleteTodoItem($user_id, $todo_id){
   $statement->closeCursor();
 }
 
-function addTodoItem($user_id, $todo_text){
+function addTodoItem($user_id, $todo_item, $description, $date, $time){
   global $db;
-  $query ="INSERT INTO todos (user_id, todo_item) VALUES (:userid, :todo_text)";
+  $query ="INSERT INTO todos (user_id, todo_item, description, date, time) VALUES (:userid, :todo_item, :description, :date, :time)";
   $statement = $db->prepare($query);
   $statement->bindValue(':userid', $user_id);
-  $statement->bindValue(':todo_text', $todo_text);
+  $statement->bindValue(':todo_item', $todo_item);
+  $statement->bindValue(':description', $description);
+  $statement->bindValue(':date', $date);
+  $statement->bindValue(':time', $time);
   $statement->execute();
   $statement->closeCursor();
 }
 
 function getTodoItems($user_id){
   global $db;
-  $query = "SELECT * FROM todos WHERE user_id = :userid";
+  $query = "SELECT * FROM todos WHERE user_id = :userid  ORDER BY date,time";
   $statement = $db->prepare($query);
   $statement->bindValue(':userid', $user_id);
   $statement->execute();
