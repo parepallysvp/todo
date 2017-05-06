@@ -62,5 +62,19 @@ if($action == "show_login_page") {
 }
 	$result = getTodoItems($_COOKIE['my_id']);
 	include ('list.php');
+}else if($action == 'edit'){
+	$result1 = getTodoItem($_POST['id']);
+	include('editform.php');
+}else if($action == 'edit1'){
+ if(!($_POST['todo_item'] == NULL || $_POST['description'] == NULL || $_POST['dateofitem'] == NULL || $_POST['timeofitem'] == NULL))
+{
+	$id= $_POST['idi'];
+	editItem($_COOKIE['my_id'], $_POST['todo_item'], $_POST['description'], $_POST['dateofitem'], $_POST['timeofitem'], $id);
+}else{
+	echo"please Fill All the fields";
 }
+	$result = getTodoItems($_COOKIE['my_id']);
+	include ('list.php');
+}
+	
 ?>

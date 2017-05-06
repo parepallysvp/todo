@@ -3,12 +3,14 @@
 
 </head>
 <body>
+	<header>
 	<form align="right" action="login.php">
-	<input type="submit" value="log out">
+	<input type="submit" value="log out" class="button">
 	</form>
-	<h1> To do list system</h1>
+	</header>
+	<h2> To do list system</h2>
 	<h3> Welcome <?php echo $_COOKIE['fname'].", ".$_COOKIE['lname']; ?></h3><br/>
-	<p> Below, you may find your to-do items </p><br/> 
+	<h3> Below, you may find your to-do items </h3><br/> 
   <table>
 	<?php foreach($result as $res):?>
 	<tr>
@@ -16,9 +18,14 @@
 	<td><?php echo $res['description']. '<br/>'; ?> </td>
 	<td><?php echo $res['date']. '<br/>'; ?></td>
 	<td><?php echo $res['time']. '<br/>'; ?></td>
+	<td><form action="index.php" method='post'>
+	<input type="hidden" name='id' value='<?php echo $res['id']; ?>'>
+	<input type='hidden' name='action' value='edit'>
+	<input type="submit" value='Edit'></form>
+	</td>
 	<td>
 	<form action='index.php' method='post'>
-	<input type='hidden' name='item_id' value='<?php echo $res['id']  ?>'>
+	<input type='hidden' name='item_id' value='<?php echo $res['id'];  ?>'>
 	<input type='hidden' name='action' value='delete'>
 	<input type='submit' value="delete"></form>
 	   </td>
