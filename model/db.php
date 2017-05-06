@@ -22,6 +22,20 @@ function addTodoItem($user_id, $todo_item, $description, $date, $time){
   $statement->execute();
   $statement->closeCursor();
 }
+function editItem($user_id, $todo_item, $description, $date, $time, $id){
+  global $db;
+  $query ="UPDATE todos SET user_id = :userid, todo_item = :todo_item, description = :description, date = :date, time = :time WHERE id = :id";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':userid', $user_id);
+  $statement->bindValue(':id', $id);
+  $statement->bindValue(':todo_item', $todo_item);
+  $statement->bindValue(':description', $description);
+  $statement->bindValue(':date', $date);
+  $statement->bindValue(':time', $time);
+  $statement->execute();
+  $statement->closeCursor();
+}
+
 
 function getTodoItems($user_id){
   global $db;
@@ -32,6 +46,16 @@ function getTodoItems($user_id){
   $result = $statement->fetchAll();
   $statement->closeCursor();
   return $result;
+}
+function getTodoItem($id){
+  global $db;
+  $query = "SELECT * FROM todos WHERE id = :id ";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id', $id);
+  $statement->execute();
+  $result1 = $statement->fetchAll();
+  $statement->closeCursor();
+  return $result1;
 }
 
 function createUser($username, $password, $firstname, $lastname, $phonenumber, $dateofbirth, $gender){
