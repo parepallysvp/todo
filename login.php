@@ -7,8 +7,8 @@
 <form method="post" action="./index.php" >
 	  <label class="username"> <strong>username:</strong></label><input type="test" name="reg_uname" value="" placeholder="njit email address"/></div>
 	<div class="login_password">
-  	  <label class="password"> <strong>Password:</strong></label><input type="password" name="reg_password" value=""/><br><br>
-	  <input type="hidden" name="action" value="test_user"/></div>
+  	  <label class="password"> <strong>Password:</strong></label><input type="password" name="reg_password" value=""/><br><br></div>
+	  <input type="hidden" name="action" value="test_user"/>
          <button class="login"> <input type="submit" value="Login"/></button>
   </form>
 <button class="register">

@@ -13,6 +13,7 @@
 	<?php foreach($result as $res):?>
 	<tr>
 	<td><a href='detail.php'><?php echo $res['todo_item']. '<br />';?></a></td>
+	<td><?php echo $res['description']. '<br/>'; ?> </td>
 	<td><?php echo $res['date']. '<br/>'; ?></td>
 	<td><?php echo $res['time']. '<br/>'; ?></td>
 	<td>

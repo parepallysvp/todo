@@ -6,7 +6,7 @@ if($action == NULL) {
 	$action="show_login_page";
 }
 if($action == "show_login_page") {
-	include('login.php');
+	include ('login.php');
 }else if($action == 'test_user') {
 	$username = $_POST['reg_uname'];
 	$password = $_POST['reg_password'];
@@ -19,8 +19,9 @@ if($action == "show_login_page") {
   }else if($suc == false){
           if($userverify == true){
 		echo"correct username, but wrong password";
+//		header('location: login.php');
 	}else{
-		echo"username does not exist"; 
+	include ('badinfo.php');
 }
 }
 }else if ($action == 'registrar'){
@@ -46,9 +47,11 @@ if($action == "show_login_page") {
   }
 }
 }else if ($action == 'add'){
-  if(isset($_POST['description']))
+  if(!($_POST['todo_item'] == NULL || $_POST['description'] == NULL || $_POST['dateofitem'] == NULL || $_POST['timeofitem'] == NULL))
 {
-	addTodoItem($_COOKIE['my_id'], $_POST['description']);
+	addTodoItem($_COOKIE['my_id'], $_POST['todo_item'], $_POST['description'], $_POST['dateofitem'], $_POST['timeofitem']);
+}else{
+	echo"Please the fill the required filds";
 }
 	$result = getTodoItems($_COOKIE['my_id']);
 	include('list.php');

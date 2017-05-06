@@ -1,5 +1,5 @@
 <?php 
-  echo " the user exists, pls change a new name!</br>";
+  echo " The email address already exists , please try with a different email address</br>";
 
 ?>
 <html>
