@@ -1,11 +1,14 @@
 <html>
+<?php include'./view/header.php';?>
 <body>
-<?php include"./view/header.php";?>
-	<h4>Wrong username, Please try again by entering the correct username</h4><br/>
+<div class="login-page">
+<div class="form">
+	<p class="message">Wrong username, Please try again by entering the correct username</p><br/>
 	<form action="login.php">
-	<input type="submit" value="login" class="button">
+	<button>Login</button>
 	</form>
-<?php include"./view/footer.php"?>
+</div>
+</div>
 </body>
 
 </html>

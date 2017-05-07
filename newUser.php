@@ -1,11 +1,14 @@
 <html>
+<?php include'./view/header.php';?>
 <body>
-<?php include"./view/header.php"?>
-<h3>Welcome <?php $_COOKIE['fname'];?>, your account has been created. Now you can log in</h3>
+<div class="login-page">
+<div class="form">
+<p class="message">Welcome <?php $_COOKIE['fname'];?>, your account has been created. Now you can log in</p>
 <form action="login.php">
-<input type="submit" value="login page" />
+<button>Login</button
 </form>
-<?php include"./view/footer.php";?>
+</div>
+</div>
 </body>
 </html>
 

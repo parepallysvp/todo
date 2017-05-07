@@ -1,13 +1,18 @@
 <html>
+<?php include'./view/header.php';?>
 <body>
-<h4> Add A Todo Item</h4>
+<h1> Add Todo Item</h1>
+<div class="login-page">
+<div class="form">
 <form method="post" action="index.php">
-<label>Todo_Item :</label><input type="text" name="todo_item" placeholder="Title"><br/>
-<label>Description:</label><input type="text" name="description" placeholder="Type your Description in 140 characters"><br/>
-<label>Date :</label><input type="date" name="dateofitem"><br/>
-<label>Time :</label><input type="time" name="timeofitem"><br/>
+<input type="text" name="todo_item" placeholder="Title" maxlength="25"><br/>
+<input type="text" name="description" placeholder="Type your Description in 140 characters" maxlength="140" size="50"><br/>
+<input type="date" name="dateofitem" placeholder="Date"><br/>
+<input type="time" name="timeofitem" placeholder="Time"><br/>
 <input type="hidden" name="action" value="add">
-<input type="submit" value="Add">
+<button>Add</button>
 </form>
+</div>
+</div>
 </body>
 </html>

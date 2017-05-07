@@ -1,15 +1,14 @@
-<?php 
-  echo " The email address already exists , please try with a different email address</br>";
-
-?>
 <html>
 <?php include"./view/header.php"?>
  <body>
-<h3>The email address already exists, please try with a different email address</h3>
+<div class="login-page">
+<div class="form">
+<p class="message">The email address already exists, please try with a different email address</p>
  <form action= "register.php">
-  <input type="submit" value="continue to register" />
+<button>Register</button>
  </form>
-<?php include"./view/footer.php"?>
+</div>
+</div>
 </body>
 </html>
 

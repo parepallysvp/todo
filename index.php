@@ -18,8 +18,7 @@ if($action == "show_login_page") {
 	include('list.php');
   }else if($suc == false){
           if($userverify == true){
-		echo"correct username, but wrong password";
-//		header('location: login.php');
+	include ('login1.php');
 	}else{
 	include ('badinfo.php');
 }
