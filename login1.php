@@ -6,8 +6,8 @@
 <div class="form">
 	<p class="message">Correct Username, Wrong password</p>
 	<form method="post" action="./index.php" >
-	 <input type="test" name="reg_uname" value="<?php echo $_POST['reg_uname'];?>" placeholder="Username"/>
-	 <input type="password" name="reg_password" value="" placeholder="Password"/>
+	 <input type="test" name="reg_uname" value="<?php echo $_POST['reg_uname'];?>" placeholder="Username" required/>
+	 <input type="password" name="reg_password" value="" placeholder="Password" required/>
 	 <input type="hidden" name="action" value="test_user"/>
          <button>login</button>
 	</form>
