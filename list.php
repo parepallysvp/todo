@@ -1,40 +1,57 @@
 <html>
-<head>
-
-</head>
+<?php include"./view/headerlist.php";?>
 <body>
 	<header>
 	<form align="right" action="login.php">
-	<input type="submit" value="log out" class="button">
+	<button>Log out</button>
 	</form>
 	</header>
-	<h2> To do list system</h2>
-	<h3> Welcome <?php echo $_COOKIE['fname'].", ".$_COOKIE['lname']; ?></h3><br/>
-	<h3> Below, you may find your to-do items </h3><br/> 
+	<h1> Welcome <?php echo $_COOKIE['fname'].", ".$_COOKIE['lname']; ?></h1><br/>
   <table>
+	<thead>
+	<tr>
+	   <th colspan="20">Your ToDo Items</th>
+	</tr>
+	 <tr>
+	    <th>#</th>
+	    <th colspan="1">Todo Item</th>
+	    <th colspan="10">Description</th>
+	    <th colspan="3">Date</th>
+	    <th colspan="3">Time</th>
+	    <th colspan="1">  </th>
+	    <th colspan="1">  </th>
+	</tr>
+	</thead>
+	<tbody>
 	<?php foreach($result as $res):?>
 	<tr>
-	<td><a href='detail.php'><?php echo $res['todo_item']. '<br />';?></a></td>
-	<td><?php echo $res['description']. '<br/>'; ?> </td>
-	<td><?php echo $res['date']. '<br/>'; ?></td>
-	<td><?php echo $res['time']. '<br/>'; ?></td>
+	<td>#</td>
+	<td><?php echo $res['todo_item']. '<br />';?></td>
+	<td colspan="10"><?php echo $res['description']. '<br/>'; ?> </td>
+	<td colspan="3"><?php echo $res['date']. '<br/>'; ?></td>
+	<td colspan="3"><?php echo $res['time']. '<br/>'; ?></td>
 	<td><form action="index.php" method='post'>
 	<input type="hidden" name='id' value='<?php echo $res['id']; ?>'>
 	<input type='hidden' name='action' value='edit'>
-	<input type="submit" value='Edit'></form>
+	<button><i class="material-icons button edit">Edit</i></button></form>
 	</td>
 	<td>
 	<form action='index.php' method='post'>
 	<input type='hidden' name='item_id' value='<?php echo $res['id'];  ?>'>
 	<input type='hidden' name='action' value='delete'>
-	<input type='submit' value="delete"></form>
+	<button><i class="material-icons button edit">Delete</i></button></form>
 	   </td>
 	</tr>
 	  <?php endforeach; ?>
-
-	</table>
-	<form method ='post' action='addform.php'>
-	<span><label> Add a new item</label><input type="submit" value="Add"/></span>
+</tbody>
+</table>
+<table>
+<tbody>
+	<tr><td colspan="3">Add a new item</td>
+	<td><form method ='post' action='addform.php'>
+	<button><i class="material-icons button edit">Add</i></button></td></tr>
+</tbody>
+</table>
 </form> 
  </body>
 </html> 
