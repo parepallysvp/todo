@@ -105,8 +105,8 @@ function createUser($username, $password, $firstname, $lastname, $phonenumber, $
        $_SESSION['l_name'] = $lname;
        setcookie('login', $username);
        setcookie('my_id', $result[0]['id']);
-      // setcookie('fname', $result[0]['firstname']);
-      // setcookie('lname', $result[0]['lastname']);
+       setcookie('fname', $result[0]['firstname']);
+       setcookie('lname', $result[0]['lastname']);
        setcookie('islogged', true);
        return true;
      }else{
