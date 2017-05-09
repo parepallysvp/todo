@@ -51,7 +51,7 @@ table {
      border-collapse: separate;
      border-spacing: 0;
      border: 2px solid #ed1c40;
-     width: 500px;
+     width: auto;
      margin: 50px auto;
      border-radius: .25rem;
 }
@@ -64,7 +64,7 @@ thead tr:first-child {
 
 th:first-child,
 td:first-child {
-          padding: 0 15px 0 20px;
+          padding: 0 35px 0 35px;
 }
 
 thead tr:last-child th {
