@@ -14,8 +14,9 @@ if($action == "show_login_page") {
 	$userverify = userValid($username);
   if($suc == true)
   {
-	$result= getTodoItems($_COOKIE['my_id']);
-	include('list.php');
+	$result2 = getTodoItem1($_SESSION['my_id']);
+	$result= getTodoItems($_SESSION['my_id']);
+	include("list.php");
   }else if($suc == false){
           if($userverify == true){
 	include ('login1.php');
@@ -52,15 +53,17 @@ if($action == "show_login_page") {
 }else{
 	echo"Please the fill the required filds";
 }
+	$result2 = getTodoItem1($_COOKIE['my_id']);
 	$result = getTodoItems($_COOKIE['my_id']);
-	include('list.php');
+	include('list1.php');
 }else if($action == 'delete'){
   if(isset($_POST['item_id'])){
 	$selected=$_POST['item_id'];
         deleteTodoItem($_COOKIE['my_id'], $selected);
 }
+	$result2 = getTodoItem1($_COOKIE['my_id']);
 	$result = getTodoItems($_COOKIE['my_id']);
-	include ('list.php');
+	include ('list1.php');
 }else if($action == 'edit'){
 	$result1 = getTodoItem($_POST['id']);
 	include('editform.php');
@@ -72,8 +75,21 @@ if($action == "show_login_page") {
 }else{
 	echo"please Fill All the fields";
 }
+	$result2 = getTodoItem1($_COOKIE['my_id']);
 	$result = getTodoItems($_COOKIE['my_id']);
-	include ('list.php');
+	include ('list1.php');
+}else if($action == 'complete'){
+        $status= 1;
+        statusupdate($_POST['com_id'], $status);
+        $result2 = getTodoItem1($_COOKIE['my_id']);
+	$result = getTodoItems($_COOKIE['my_id']);
+	include('list1.php');
+}else if($action == 'incomplete'){
+        $status= 0;
+        statusupdate1($_POST['incom_id'], $status);
+        $result2 = getTodoItem1($_COOKIE['my_id']);
+        $result = getTodoItems($_COOKIE['my_id']);
+        include('list1.php');
 }
-	
+
 ?>

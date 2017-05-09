@@ -7,7 +7,7 @@
 	<button>Log out</button>
 	</form>
 	</header>
-	<h1> Welcome <?php echo $_SESSION['f_name'].", ".$_SESSION['l_name']; ?></h1><br/>
+	<h1> Welcome <?php echo $_COOKIE['fname'].", ".$_COOKIE['lname']; ?></h1><br/>
   <table>
 	<thead>
 	<tr>
@@ -103,4 +103,4 @@
 </tbody>
 </table> 
  </body>
-</html> 
+</html>
