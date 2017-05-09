@@ -9,7 +9,7 @@
    <input type="password" name="reg_password" value="" placeholder="Password" required/>
    <input type='text' name="user_fname" value="" placeholder="Firstname" required/> </br></br>
    <input type='text' name="user_lname" value="" placeholder="Last Name" required/>
-   <input type='number' name="user_pnumber" value="" placeholder="Phone Number" required/> </br></br>
+   <input type='number' name="user_pnumber" value="" placeholder="Phone Number" maxlength="10" required/> </br></br>
    <input type='date' name="dob"  value="" placeholder="Date of birth" required/> </br></br>
  <p class="message"> Gender </p>
   <input type="radio" name="gender" value="male" checked> Male

@@ -20,7 +20,7 @@ h1{
 	padding: 30px;
 	text-align: center;
 	font-family: Aclonica;
-	font-size: 49px;
+	font-size: 39px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
@@ -58,7 +58,7 @@ h1{
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 17px;
 }
 .form .message a {
   color: #4CAF50;
